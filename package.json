@@ -40,8 +40,8 @@
   "lint-staged": {
     "apps/nextjs/src/**/*.{js,jsx,ts,tsx}": [
       "cd apps/nextjs && pnpm run lint",
-      "pnpm run format"
+      "cd apps/nextjs && pnpm run format"
     ],
-    "apps/nextjs/src/**/*.{css,md}": "pnpm run format"
+    "apps/nextjs/src/**/*.{css,md}": "cd apps/nextjs && pnpm run format"
   }
 }
