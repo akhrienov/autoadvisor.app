@@ -13,11 +13,12 @@ const MarketingLayout: FC<MarketingLayoutProps> = ({ children }) => {
   return (
     <>
       <div className="container mx-auto h-full">
-        {/*asdsadadasda*/}
+        {/*lkhasdjkhasdj*/}
         <div className="flex h-full flex-col">
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
+          {/*dsasadasd*/}
         </div>
       </div>
       <GlobalLoader initTime={500} />
