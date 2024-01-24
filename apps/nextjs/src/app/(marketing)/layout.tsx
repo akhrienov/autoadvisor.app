@@ -13,11 +13,12 @@ const MarketingLayout: FC<MarketingLayoutProps> = ({ children }) => {
   return (
     <>
       <div className="container mx-auto h-full">
+        {/*as;kdjasdkl*/}
         <div className="flex h-full flex-col">
-          // Just a test
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
+          {/*asdlsa;kdjasd*/}
         </div>
       </div>
       <GlobalLoader initTime={500} />
