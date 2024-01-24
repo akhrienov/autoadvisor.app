@@ -1,0 +1,44 @@
+{
+  "name": "autoadvisor",
+  "private": true,
+  "engines": {
+    "node": ">=18.x",
+    "pnpm": ">=8.14.3",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
+  },
+  "scripts": {
+    "build:api": "cd apps/nestjs && pnpm run build",
+    "build:client": "cd apps/nextjs && pnpm run build",
+    "start:api:dev": "cd apps/nestjs && pnpm run start:dev",
+    "start:api:prod": "cd apps/nestjs && pnpm run start:prod",
+    "start:client:dev": "cd apps/nextjs && pnpm run dev",
+    "start:client:prod": "cd apps/nextjs && pnpm run start",
+    "lint": "cd apps/nextjs && pnpm run lint",
+    "format": "cd apps/nextjs && pnpm run format",
+    "prepare": "husky install"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.6",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "moment": "^2.29.4"
+  },
+  "packageManager": "pnpm@8.14.3",
+  "lint-staged": {
+    "apps/nextjs/src/*.{js,jsx,ts,tsx}": "pnpm lint",
+    "apps/nextjs/src/*.{js,jsx,ts,tsx,css,md}": "pnpm format"
+  }
+}

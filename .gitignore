@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# IDE/Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.idea
+
+# OS generated files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# eSLint cache
+.eslintcache
+
+# prettier cache
+.prettiercache
