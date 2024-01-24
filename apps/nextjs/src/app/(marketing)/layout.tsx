@@ -14,6 +14,7 @@ const MarketingLayout: FC<MarketingLayoutProps> = ({ children }) => {
     <>
       <div className="container mx-auto h-full">
         <div className="flex h-full flex-col">
+          // Just a test
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
