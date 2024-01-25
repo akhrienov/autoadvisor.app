@@ -14,6 +14,7 @@
     "start:api:prod": "cd apps/nestjs && pnpm run start:prod",
     "start:client:dev": "cd apps/nextjs && pnpm run dev",
     "start:client:prod": "cd apps/nextjs && pnpm run start",
+    "vercel-build": "cd apps/nextjs && pnpm run build",
     "lint": "cd apps/nextjs && pnpm run lint",
     "format": "cd apps/nextjs && pnpm run format",
     "prepare": "husky install"
