@@ -19,7 +19,7 @@ const SignupForm: FC<SignupFormProps> = ({ onToggleForm }) => {
           <ArrowLongRightIcon className="ml-2 h-5 w-5 text-button-dark" />
         </Button>
       </div>
-      <div className="divider text-sm">Or sign up with TESTTESTTEST</div>
+      <div className="divider text-sm">Or sign up with</div>
       <div className="flex flex-col">
         <Button colorScheme={ButtonColorScheme.SLATE_800} block>
           <GoogleIcon className="h-5 w-5" />
