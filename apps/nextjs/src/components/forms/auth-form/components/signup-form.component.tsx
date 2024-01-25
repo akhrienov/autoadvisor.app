@@ -1,6 +1,8 @@
 import { FC } from 'react'
 
-import Button, { ButtonColorScheme } from '@/components/ui/button/button.component'
+import Button, {
+  ButtonColorScheme,
+} from '@/components/ui/button/button.component'
 import { ArrowLongRightIcon } from '@heroicons/react/24/outline'
 
 import { FacebookIcon, GoogleIcon } from '@/assets/media/icons'
@@ -13,9 +15,16 @@ const SignupForm: FC<SignupFormProps> = ({ onToggleForm }) => {
   return (
     <>
       <div>
-        <input type="text" placeholder="Email" className="input input-bordered mb-2 w-full" />
+        TEST DEPLOY
+        <input
+          type="text"
+          placeholder="Email"
+          className="input input-bordered mb-2 w-full"
+        />
         <Button colorScheme={ButtonColorScheme.SLATE_200} block>
-          <span className="font-bold text-button-dark">Sign up - it&apos;s free</span>
+          <span className="font-bold text-button-dark">
+            Sign up - it&apos;s free
+          </span>
           <ArrowLongRightIcon className="ml-2 h-5 w-5 text-button-dark" />
         </Button>
       </div>
@@ -32,7 +41,10 @@ const SignupForm: FC<SignupFormProps> = ({ onToggleForm }) => {
       </div>
       <div className="text-center text-sm">
         <span className="text-button-dark">Already have a account?</span>{' '}
-        <a className="text-primary underline hover:cursor-pointer hover:no-underline" onClick={onToggleForm}>
+        <a
+          className="text-primary underline hover:cursor-pointer hover:no-underline"
+          onClick={onToggleForm}
+        >
           Log in
         </a>
       </div>
