@@ -13,14 +13,13 @@ const SignupForm: FC<SignupFormProps> = ({ onToggleForm }) => {
   return (
     <>
       <div>
-        TEST DEPLOY
         <input type="text" placeholder="Email" className="input input-bordered mb-2 w-full" />
         <Button colorScheme={ButtonColorScheme.SLATE_200} block>
           <span className="font-bold text-button-dark">Sign up - it&apos;s free</span>
           <ArrowLongRightIcon className="ml-2 h-5 w-5 text-button-dark" />
         </Button>
       </div>
-      <div className="divider text-sm">Or sign up with</div>
+      <div className="divider text-sm">Or sign up with TESTTESTTEST</div>
       <div className="flex flex-col">
         <Button colorScheme={ButtonColorScheme.SLATE_800} block>
           <GoogleIcon className="h-5 w-5" />
