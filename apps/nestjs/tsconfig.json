@@ -14,5 +14,9 @@
     "baseUrl": "./",
     "skipLibCheck": true,
     "incremental": true,
+    "paths": {
+      "@app/*": ["src/*"],
+    }
   },
+  "exclude": ["node_modules", "dist"],
 }
