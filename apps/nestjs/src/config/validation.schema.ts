@@ -20,7 +20,7 @@ export default Joi.object({
   POSTGRES_PASSWORD: Joi.string().required(),
   POSTGRES_NAME: Joi.string().required(),
   // Logger
-  LOGGER_LEVEL: Joi.string()
+  LOG_LEVEL: Joi.string()
     .valid(
       LogLevel.Emerg,
       LogLevel.Alert,
@@ -31,5 +31,5 @@ export default Joi.object({
       LogLevel.Info,
       LogLevel.Debug
     )
-    .default(LogLevel.Info),
+    .default(LogLevel.Debug),
 })
