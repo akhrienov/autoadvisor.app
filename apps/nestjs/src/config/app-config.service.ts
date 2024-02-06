@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common'
 import { ConfigType } from '@nestjs/config'
 
-import { appConfig, postgresConfig } from '@app/config/app.configs'
 import { Environment } from '@app/config/enums/environment.enum'
+import { appConfig, postgresConfig, jwtConfig } from '@app/config'
 
 @Injectable()
 export class AppConfigService {
@@ -10,7 +10,9 @@ export class AppConfigService {
     @Inject(appConfig.KEY)
     private readonly appConfiguration: ConfigType<typeof appConfig>,
     @Inject(postgresConfig.KEY)
-    private readonly postgresConfiguration: ConfigType<typeof postgresConfig>
+    private readonly postgresConfiguration: ConfigType<typeof postgresConfig>,
+    @Inject(jwtConfig.KEY)
+    private readonly jwtConfiguration: ConfigType<typeof jwtConfig>
   ) {}
 
   get isProduction(): boolean {
@@ -23,5 +25,9 @@ export class AppConfigService {
 
   get postgresConfigs(): ConfigType<typeof postgresConfig> {
     return this.postgresConfiguration
+  }
+
+  get jwtConfigs(): ConfigType<typeof jwtConfig> {
+    return this.jwtConfiguration
   }
 }

@@ -4,3 +4,7 @@ export const DEFAULT_API_PREFIX: string = 'api'
 export const DEFAULT_API_VERSION: string = 'v1'
 export const DEFAULT_POSTGRES_HOST: string = 'localhost'
 export const DEFAULT_POSTGRES_PORT: number = 5432
+export const DEFAULT_REDIS_HOST: string = 'localhost'
+export const DEFAULT_REDIS_PORT: number = 6379
+export const DEFAULT_JWT_ACCESS_TOKEN_TTL: number = 3600
+export const DEFAULT_JWT_REFRESH_TOKEN_TTL: number = 86400
