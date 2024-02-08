@@ -2,16 +2,16 @@ import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nes
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-import { RESPONSE_SUCCESS_MESSAGE, RESPONSE_SUCCESS_STATUS } from '@app/common/common.constants'
+import { MESSAGES, STATUSES } from '@app/common/constants'
 
 @Injectable()
 export class WrapResponseInterceptor<T> implements NestInterceptor<T, any> {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
       map((data) => ({
-        status: RESPONSE_SUCCESS_STATUS,
+        status: STATUSES.RESPONSE_SUCCESS,
         data,
-        message: data.message ?? RESPONSE_SUCCESS_MESSAGE,
+        message: (data && data.message) ?? MESSAGES.RESPONSE_SUCCESS,
       }))
     )
   }

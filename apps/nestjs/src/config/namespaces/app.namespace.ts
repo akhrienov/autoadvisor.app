@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config'
 
-import { DEFAULT_API_PREFIX, DEFAULT_API_VERSION, DEFAULT_APP_NAME, DEFAULT_PORT } from '@app/config/config.constants'
+import { DEFAULT_API_PREFIX, DEFAULT_API_VERSION, DEFAULT_APP_NAME, DEFAULT_PORT } from '@app/config/constants'
 import { ConfigKey } from '@app/config/enums/config-key.enum'
 import { Environment } from '@app/config/enums/environment.enum'
 

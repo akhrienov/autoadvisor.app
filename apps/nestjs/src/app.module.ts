@@ -6,25 +6,18 @@ import { PostgresModule } from '@app/db/postgres/postgres.module'
 import { UsersModule } from '@app/resources/users/users.module'
 import { IamModule } from '@app/iam/iam.module'
 import { CommonModule } from '@app/common/common.module'
-import { AppConfigService } from '@app/config/app-config.service'
-import { HttpErrorFilter } from '@app/common/filters/http-error.filter'
+import { ConfigService } from '@app/config/config.service'
+import { WrapHttpErrorFilter } from '@app/common/filters/wrap-http-error.filter'
 import { WrapResponseInterceptor } from '@app/common/interceptors/wrap-response.interceptor'
 import { TimeoutInterceptor } from '@app/common/interceptors/timeout.interceptor'
-import validationSchema from '@app/config/validation.schema'
-import { configs } from '@app/config'
+import { configOptions } from '@app/config/configurations'
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ load: [...configs], validationSchema, isGlobal: true }),
-    PostgresModule,
-    UsersModule,
-    IamModule,
-    CommonModule,
-  ],
+  imports: [ConfigModule.forRoot(configOptions), PostgresModule, CommonModule, IamModule, UsersModule],
   providers: [
-    AppConfigService,
+    ConfigService,
     { provide: APP_PIPE, useClass: ValidationPipe },
-    { provide: APP_FILTER, useClass: HttpErrorFilter },
+    { provide: APP_FILTER, useClass: WrapHttpErrorFilter },
     { provide: APP_INTERCEPTOR, useClass: WrapResponseInterceptor },
     { provide: APP_INTERCEPTOR, useClass: TimeoutInterceptor },
   ],

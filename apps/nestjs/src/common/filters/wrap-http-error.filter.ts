@@ -1,21 +1,21 @@
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException } from '@nestjs/common'
 import { Response } from 'express'
 
-import { RESPONSE_ERROR_STATUS, RESPONSE_ERROR_MESSAGE } from '@app/common/common.constants'
+import { MESSAGES, STATUSES } from '@app/common/constants'
 
 @Catch(HttpException)
-export class HttpErrorFilter implements ExceptionFilter {
+export class WrapHttpErrorFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp()
     const response: Response = ctx.getResponse()
     const status: number = exception.getStatus()
     const errorResponse: string | object = exception.getResponse()
 
-    let message: string = RESPONSE_ERROR_MESSAGE
+    let message: string = MESSAGES.RESPONSE_ERROR
     let errors: any = null
 
     if (typeof errorResponse === 'object' && 'message' in errorResponse) {
-      message = (errorResponse as any)['message'] ?? RESPONSE_ERROR_MESSAGE
+      message = (errorResponse as any)['message'] ?? MESSAGES.RESPONSE_ERROR
     }
 
     if (typeof errorResponse === 'object' && 'error' in errorResponse) {
@@ -23,7 +23,7 @@ export class HttpErrorFilter implements ExceptionFilter {
     }
 
     response.status(status).json({
-      status: RESPONSE_ERROR_STATUS,
+      status: STATUSES.RESPONSE_ERROR,
       message,
       errors,
     })

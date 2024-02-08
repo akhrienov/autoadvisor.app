@@ -30,7 +30,7 @@ export class AuthenticationGuard implements CanActivate {
     for (const instance of guards) {
       const canActivate: boolean | void | Observable<boolean> = await Promise.resolve(
         instance.canActivate(context)
-      ).catch((err) => {
+      ).catch((err): void => {
         error = err
       })
 

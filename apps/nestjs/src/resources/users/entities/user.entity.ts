@@ -13,7 +13,7 @@ import { Role } from '@app/resources/users/enums/role.enum'
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string
+  readonly id: string
 
   @Column({ type: 'varchar', name: 'first_name', length: 150, nullable: true })
   firstName: string | null
@@ -31,7 +31,7 @@ export class User {
   @Column({ type: 'varchar', length: 255 })
   password: string
 
-  @Column({ type: 'enum', enum: Role, default: Role.Regular })
+  @Column({ type: 'enum', enum: Role, default: Role.User })
   role: Role
 
   @CreateDateColumn({ type: 'timestamp', name: 'created_at' })

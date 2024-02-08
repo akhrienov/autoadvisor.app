@@ -1,6 +1,6 @@
 import { registerAs } from '@nestjs/config'
 
-import { DEFAULT_POSTGRES_HOST, DEFAULT_POSTGRES_PORT } from '@app/config/config.constants'
+import { DEFAULT_POSTGRES_HOST, DEFAULT_POSTGRES_PORT } from '@app/config/constants'
 import { ConfigKey } from '@app/config/enums/config-key.enum'
 
 export default registerAs(ConfigKey.POSTGRES, () => ({

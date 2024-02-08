@@ -3,15 +3,15 @@ import { JwtService } from '@nestjs/jwt'
 import { ConfigType } from '@nestjs/config'
 import { Request } from 'express'
 
-import { jwtConfig } from '@app/config'
-import { REQUEST_USER_KEY } from '@app/iam/iam.constants'
-import { ERROR_MESSAGES } from '@app/iam/authentication/authentication.constants'
+import { jwtConfiguration } from '@app/config/configurations'
+import { REQUEST_USER_KEY } from '@app/iam/constants'
+import { ERROR_MESSAGES } from '@app/iam/authentication/constants'
 
 @Injectable()
 export class AccessTokenGuard implements CanActivate {
   constructor(
-    @Inject(jwtConfig.KEY)
-    private readonly jwtConfiguration: ConfigType<typeof jwtConfig>,
+    @Inject(jwtConfiguration.KEY)
+    private readonly jwtConfig: ConfigType<typeof jwtConfiguration>,
     private readonly jwtService: JwtService
   ) {}
 
@@ -24,7 +24,7 @@ export class AccessTokenGuard implements CanActivate {
     }
 
     try {
-      request[REQUEST_USER_KEY] = await this.jwtService.verifyAsync(token, this.jwtConfiguration)
+      request[REQUEST_USER_KEY] = await this.jwtService.verifyAsync(token, this.jwtConfig)
     } catch (err) {
       throw new UnauthorizedException(ERROR_MESSAGES.ACCESS_TOKEN_INVALID)
     }

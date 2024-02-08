@@ -1,10 +1,6 @@
 import * as Joi from 'joi'
 
-import {
-  DEFAULT_APP_NAME,
-  DEFAULT_JWT_ACCESS_TOKEN_TTL,
-  DEFAULT_JWT_REFRESH_TOKEN_TTL,
-} from '@app/config/config.constants'
+import { DEFAULT_APP_NAME, DEFAULT_JWT_ACCESS_TOKEN_TTL, DEFAULT_JWT_REFRESH_TOKEN_TTL } from '@app/config/constants'
 import { Environment } from '@app/config/enums/environment.enum'
 import { LogLevel } from '@app/lib/winston/enums/log-level.enum'
 
@@ -27,8 +23,8 @@ export default Joi.object({
   JWT_SECRET: Joi.string().required(),
   JWT_TOKEN_AUDIENCE: Joi.string().required(),
   JWT_TOKEN_ISSUER: Joi.string().required(),
-  JWT_ACCESS_TOKEN_TTL: Joi.number().default(DEFAULT_JWT_ACCESS_TOKEN_TTL),
-  JWT_REFRESH_TOKEN_TTL: Joi.number().default(DEFAULT_JWT_REFRESH_TOKEN_TTL),
+  JWT_ACCESS_TOKEN_TTL: Joi.alternatives().try(Joi.number(), Joi.string()).default(DEFAULT_JWT_ACCESS_TOKEN_TTL),
+  JWT_REFRESH_TOKEN_TTL: Joi.alternatives().try(Joi.number(), Joi.string()).default(DEFAULT_JWT_REFRESH_TOKEN_TTL),
   // Logger
   LOG_LEVEL: Joi.string()
     .valid(

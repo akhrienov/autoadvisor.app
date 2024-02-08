@@ -2,21 +2,21 @@ import { Injectable, Inject, OnApplicationBootstrap, OnApplicationShutdown } fro
 import { ConfigType } from '@nestjs/config'
 import Redis from 'ioredis'
 
-import { redisConfig } from '@app/config'
+import { redisConfiguration } from '@app/config/configurations'
 
 @Injectable()
 export class RedisService implements OnApplicationBootstrap, OnApplicationShutdown {
   private redisClient: Redis
 
   constructor(
-    @Inject(redisConfig.KEY)
-    private readonly redisConfiguration: ConfigType<typeof redisConfig>
+    @Inject(redisConfiguration.KEY)
+    private readonly redisConfig: ConfigType<typeof redisConfiguration>
   ) {}
 
   onApplicationBootstrap(): void {
     this.redisClient = new Redis({
-      host: this.redisConfiguration.host,
-      port: this.redisConfiguration.port,
+      host: this.redisConfig.host,
+      port: this.redisConfig.port,
     })
   }
 
