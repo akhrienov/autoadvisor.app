@@ -1,7 +1,7 @@
 'use client'
-import AuthForm, { AuthFormTypes } from '@/components/forms/auth-form/auth-form.component'
-
-import { ROUTES } from '@/constants/routes'
+import AuthForm from '@/components/forms/auth-form'
+import { AuthFormType } from '@components/forms/auth-form/enums/auth-form-type.enum'
+import { ROUTES } from '@/constants/routes.constants'
 
 const HeroSection = () => {
   return (
@@ -16,7 +16,7 @@ const HeroSection = () => {
             all your auto needs.
           </p>
         </div>
-        <AuthForm defaultForm={AuthFormTypes.SIGNUP} redirectTo={ROUTES.AUTH_PAGE.ROOT} />
+        <AuthForm defaultForm={AuthFormType.SIGNUP} redirectTo={ROUTES.AUTH_PAGE.ROOT} />
       </div>
     </div>
   )

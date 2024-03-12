@@ -1,15 +1,11 @@
 'use client'
 import { useState, useEffect, FC, HTMLProps } from 'react'
+import { ThemeName } from './enums/theme-name.enum'
 
-enum ThemeNames {
-  ILLUMINE = 'illumine',
-  TWILIGHT = 'twilight',
-}
-
-type ThemeSwitcherProps = {
+interface ThemeSwitcherProps extends HTMLProps<HTMLLabelElement> {
   width?: number
   height?: number
-} & HTMLProps<HTMLLabelElement>
+}
 
 const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ width = 5, height = 5, ...props }) => {
   const [isDark, setIsDark] = useState<boolean>(true)
@@ -20,7 +16,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ width = 5, height = 5, ...props
   }, [])
 
   useEffect((): void => {
-    document.body.setAttribute('data-theme', isDark ? ThemeNames.TWILIGHT : ThemeNames.ILLUMINE)
+    document.body.setAttribute('data-theme', isDark ? ThemeName.TWILIGHT : ThemeName.ILLUMINE)
   }, [isDark])
 
   const handleThemeSwitch = (): void => {

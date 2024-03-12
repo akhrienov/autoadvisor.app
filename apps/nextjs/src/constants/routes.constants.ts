@@ -1,12 +1,4 @@
-interface Routes {
-  ROOT: string
-  AUTH_PAGE: {
-    ROOT: string
-  }
-  DASHBOARD_PAGE: {
-    ROOT: string
-  }
-}
+import { Routes } from '@/interfaces/routes.interface'
 
 export const ROUTES: Routes = {
   ROOT: '/',

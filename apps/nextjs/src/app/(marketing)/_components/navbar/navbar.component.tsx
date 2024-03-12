@@ -1,5 +1,5 @@
-import ThemeSwitcher from '@/components/ui/theme-switcher/theme-switcher.component'
-import Logo from '@/components/ui/logo/logo.component'
+import ThemeSwitcher from '@components/ui/theme-switcher'
+import Logo from '@components/ui/logo'
 
 const NavBar = () => {
   return (

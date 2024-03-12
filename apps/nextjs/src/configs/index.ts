@@ -1,14 +1,5 @@
-import envConfigs, { EnvConfigs } from './env.configs'
-import siteConfigs, { SiteConfigs } from './site.configs'
+import { appConfig } from '@/configs/namespaces/app.namespace'
+import { apiConfig } from '@/configs/namespaces/api.namespace'
+import { envConfig } from '@/configs/namespaces/env.namespace'
 
-type AppConfigs = {
-  env: EnvConfigs
-  site: SiteConfigs
-}
-
-const configs: AppConfigs = {
-  env: envConfigs,
-  site: siteConfigs,
-}
-
-export default configs
+export { appConfig, apiConfig, envConfig }

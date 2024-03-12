@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import moment, { Moment } from 'moment'
 
-const useDate = (initialDate = moment()) => {
+export const useDate = (initialDate = moment()) => {
   const [currentDate, setDate] = useState<Moment>(initialDate)
 
   /**
-   * Function to format the date
+   * Format the date to a some datetime format
+   * Default format is YYYY-MM-DD
    * @param formatString
    */
   const format = (formatString = 'YYYY-MM-DD') => {
@@ -13,7 +14,7 @@ const useDate = (initialDate = moment()) => {
   }
 
   /**
-   * Function to get the current year
+   * Get the current year
    */
   const getCurrentYear = () => {
     return currentDate.year()
@@ -21,5 +22,3 @@ const useDate = (initialDate = moment()) => {
 
   return { currentDate, format, getCurrentYear }
 }
-
-export default useDate

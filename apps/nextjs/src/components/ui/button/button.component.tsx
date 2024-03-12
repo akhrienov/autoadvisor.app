@@ -1,22 +1,7 @@
-import { FC, ButtonHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, FC } from 'react'
 
-export enum ButtonSize {
-  XS,
-  SM,
-  LG,
-}
-
-export enum ButtonColorScheme {
-  PRIMARY,
-  SECONDARY,
-  SLATE_200,
-  SLATE_800,
-  ACCENT,
-  INFO,
-  SUCCESS,
-  WARNING,
-  ERROR,
-}
+import { ButtonSize } from './enums/button-size.enum'
+import { ButtonColorScheme } from './enums/button-color-scheme.enum'
 
 const COLOR_MAP = {
   [ButtonColorScheme.PRIMARY]: 'btn-primary',
@@ -36,12 +21,12 @@ const SIZE_MAP = {
   [ButtonSize.LG]: 'btn-lg',
 }
 
-type ButtonProps = {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   colorScheme?: ButtonColorScheme
   size?: ButtonSize
   block?: boolean
   outline?: boolean
-} & ButtonHTMLAttributes<HTMLButtonElement>
+}
 
 const Button: FC<ButtonProps> = ({ colorScheme, size, block = false, outline = false, children, ...props }) => {
   const layoutClass: string = 'btn'

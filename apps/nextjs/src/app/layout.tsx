@@ -3,21 +3,19 @@ import type { Metadata } from 'next'
 import { Exo } from 'next/font/google'
 import { NextFont } from 'next/dist/compiled/@next/font'
 
-import { ReduxProvider } from '@/redux/provider'
-
-import configs from '@/configs'
-
+import { Providers } from '@/app/providers'
+import { appConfig } from '@/configs'
 import '@/styles/globals.scss'
 
-type RootLayoutProps = {
+interface RootLayoutProps {
   children: ReactNode
 }
 
 const font: NextFont = Exo({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata: Metadata = {
-  title: `${configs.site.name} | ${configs.site.description.short}`,
-  description: configs.site.description.long,
+  title: `${appConfig.name} | ${appConfig.shortDescription}`,
+  description: appConfig.longDescription,
   icons: {
     other: [
       {
@@ -46,7 +44,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={font.className}>
-        <ReduxProvider>{children}</ReduxProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

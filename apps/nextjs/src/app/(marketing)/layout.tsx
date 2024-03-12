@@ -1,11 +1,10 @@
 import { FC, ReactNode } from 'react'
 
-import GlobalLoader from '@/components/ui/loaders/global-loader/global-loader.component'
+import GlobalLoader from '@components/ui/loaders/global-loader'
+import NavBar from '@app/(marketing)/_components/navbar'
+import Footer from '@app/(marketing)/_components/footer'
 
-import Navbar from '@/app/(marketing)/_components/navbar/navbar.component'
-import Footer from '@/app/(marketing)/_components/footer/footer.component'
-
-type MarketingLayoutProps = {
+interface MarketingLayoutProps {
   children: ReactNode
 }
 
@@ -14,7 +13,7 @@ const MarketingLayout: FC<MarketingLayoutProps> = ({ children }) => {
     <>
       <div className="container mx-auto h-full">
         <div className="flex h-full flex-col">
-          <Navbar />
+          <NavBar />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>

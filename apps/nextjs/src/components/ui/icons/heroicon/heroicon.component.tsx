@@ -2,20 +2,17 @@ import { FC } from 'react'
 import * as HeroIconsOutline from '@heroicons/react/24/outline'
 import * as HeroIconsSolid from '@heroicons/react/24/solid'
 
-export enum HeroIconTypes {
-  OUTLINE,
-  SOLID,
-}
+import { HeroIconType } from './enums/heroicon-type.enum'
 
-type HeroIconProps = {
+interface HeroIconProps {
   icon: string
-  type: HeroIconTypes
+  type: HeroIconType
   className?: string
 }
 
 const HeroIcon: FC<HeroIconProps> = ({
   icon = 'LockClosedIcon',
-  type = HeroIconTypes.OUTLINE,
+  type = HeroIconType.OUTLINE,
   className = '',
 }): JSX.Element => {
   const { ...heroiconsOutline } = HeroIconsOutline
